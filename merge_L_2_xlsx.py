@@ -18,7 +18,7 @@ if __name__ == "__main__":
 	args = vars(args.parse_args())	
 
 	print args
-	path = args["input_folder"]
+	path = args["input"]
 	path_to_out = args["output"]
 
 	# find all table_mc*_Lx.txt
