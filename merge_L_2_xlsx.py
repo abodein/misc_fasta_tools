@@ -8,8 +8,8 @@ from argparse import ArgumentParser
 
 def read_params(args):
 	parser = ArgumentParser(description = "Merge all _Lx.txt files in a given folder to an uniq .xlsx file")
-	parser.add_argument("-i","--input", metavar = "<path_to_input_dir>",required = True, type = str, nargs =1, help = "Path to input folder, where are the Lx.txt files")
-	parser.add_argument("-o","--output", metavar = "<path_to_output>", required = True,type = str, nargs = 1, help = "Path to .xlsx output file")
+	parser.add_argument("-i","--input", metavar = "<path_to_input_dir>",required = True, type = str, help = "Path to input folder, where are the Lx.txt files")
+	parser.add_argument("-o","--output", metavar = "<path_to_output>", required = True,type = str, help = "Path to .xlsx output file")
 	return parser  
 
 
@@ -17,7 +17,6 @@ if __name__ == "__main__":
 	args = read_params( sys.argv )
 	args = vars(args.parse_args())	
 
-	print args
 	path = args["input"]
 	path_to_out = args["output"]
 
