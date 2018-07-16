@@ -1,0 +1,37 @@
+#!/usr/bin/python
+
+import sys
+import re
+
+try:
+    MULTI_FASTA = sys.argv[1]
+except:
+    exit("ERR : missing arg")
+
+fa = re.compile(">")
+
+HEAD = ""
+SEQ = ""
+first = 0
+
+f = open(MULTI_FASTA)
+
+line = f.readline()
+while not first == 2:
+        if fa.match(line):  # line start whith ">"
+            first += 1
+            HEAD = line.strip()
+        elif HEAD:
+            SEQ += line.strip()
+        line = f.readline()
+
+while line:
+        if fa.match(line):  # line start whith ">"
+            print(HEAD + "\n" + SEQ)
+            HEAD = line.strip()
+            SEQ = ""
+        else:
+            SEQ += line.strip()
+        line = f.readline()
+# print last iteration
+print(HEAD + "\n" + SEQ)
