@@ -18,13 +18,9 @@ f.close()
 
 g = open(sys.argv[2])
 
-line = f.readline()
+line = g.readline()
 while line :
-    print(line + dico[line]+"\n")
-    line = f.readline()
+    print(line + dico[line])
+    line = g.readline()
 
 g.close()
-
-
-
-
